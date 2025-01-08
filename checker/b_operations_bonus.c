@@ -6,10 +6,10 @@
 /*   By: jnauroy <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 07:50:21 by jnauroy           #+#    #+#             */
-/*   Updated: 2025/01/06 13:14:06 by jnauroy          ###   ########.fr       */
+/*   Updated: 2025/01/08 11:06:01 by jnauroy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "push_swap.h"
+#include "checker.h"
 
 void	ft_swap_b(t_list **stack_b, int flag)
 {

@@ -6,10 +6,10 @@
 /*   By: jnauroy <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 09:03:43 by jnauroy           #+#    #+#             */
-/*   Updated: 2025/01/06 13:26:12 by jnauroy          ###   ########.fr       */
+/*   Updated: 2025/01/08 11:06:41 by jnauroy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "push_swap.h"
+#include "checker.h"
 
 void	ft_swap(t_list **stack_a, t_list **stack_b)
 {

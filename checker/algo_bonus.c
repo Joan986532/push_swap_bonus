@@ -1,40 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utils_bonus.c                                   :+:      :+:    :+:   */
+/*   algo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jnauroy <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/30 17:24:02 by jnauroy           #+#    #+#             */
-/*   Updated: 2025/01/08 11:39:40 by jnauroy          ###   ########.fr       */
+/*   Created: 2025/01/06 09:16:48 by jnauroy           #+#    #+#             */
+/*   Updated: 2025/01/06 13:14:37 by jnauroy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "checker.h"
 
-int	ft_atol(char *str, int *content)
+int	ft_pars_and_create(int argc, char **argv, t_list **stack_a)
 {
-	int			i;
-	int			num;
-	long int	result;
+	char	*args_joined;
 
-	i = 0;
-	num = 1;
-	result = 0;
-	while (str[i] < 33)
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	args_joined = ft_parsing(argc, argv);
+	if (args_joined)
 	{
-		if (str[i] == '-')
-			num *= (-1);
-		i++;
+		if (ft_create_stack(args_joined, stack_a))
+		{
+			if (ft_check_for_doubles(stack_a))
+			{
+				if (ft_check_sort(stack_a))
+				{
+					free(args_joined);
+					return (0);
+				}
+			}
+		}
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-		result = result * 10 + str[i++] - 48;
-	if (result * num > 2147483647 || result * num < -2147483648)
-	{
-		write(2, "Error\n", 6);
-		return (0);
-	}
-	*content = result * num;
+	if (stack_a)
+		ft_lstclear(stack_a);
+	free(args_joined);
 	return (1);
 }

@@ -6,20 +6,26 @@
 /*   By: jnauroy <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 08:58:23 by jnauroy           #+#    #+#             */
-/*   Updated: 2025/01/07 17:04:54 by jnauroy          ###   ########.fr       */
+/*   Updated: 2025/01/08 12:03:44 by jnauroy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef CHECKER_H
 # define CHECKER_H
 
-# include "GNL/get_next_line.h"
 # include "Libft_checker/libft.h"
+# include <stdlib.h>
+# include <unistd.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 10
+# endif
 
 enum commands { SB = 1, PB, RB, RRB, SA, PA, RA, RRA, SS, RR, RRR };
 
 //checker
 int main(int argc, char **argv);
 void ft_create_instructions(t_list **cmd);
+void ft_checker(t_list **cmd, t_list **stack_a, t_list **stack_b);
 int ft_moove(char *line);
 
 //ft_utils_bonus
@@ -59,5 +65,16 @@ void	ft_swap(t_list **stack_a, t_list **stack_b);
 void	ft_rotate(t_list **stack_a, t_list **stack_b);
 void	ft_reverse_rotate(t_list **stack_a, t_list **stack_b);
 
-#endif
+//get_next_line_utils
+size_t	ft_strlen_gnl(char *str);
+char	*ft_strchr_gnl(const char *string, int c);
+char	*ft_strjoin_gnl(char *s1, char *s2);
 
+//get_next_line
+char	*get_next_line(int fd);
+char	*ft_write_right(char *buffer);
+char	*ft_write_left(char *string);
+int		ft_free_gnl(char *buffer, char *temp, char *string, char *sentence);
+char	*ft_read_buffer(int fd, char *buffer, char *string);
+
+#endif

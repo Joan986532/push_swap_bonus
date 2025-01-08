@@ -21,7 +21,8 @@ MY_SOURCES = ft_isdigit.c \
 			 ft_lstlast_bonus.c \
 			 ft_lstadd_back_bonus.c \
 			 ft_lstclear_bonus.c \
-			 ft_strlen.c
+			 ft_strlen.c \
+			 ft_memcmp.c
 
 MY_OBJECTS = $(MY_SOURCES:.c=.o)
 

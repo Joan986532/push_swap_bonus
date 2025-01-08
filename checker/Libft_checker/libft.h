@@ -6,7 +6,7 @@
 /*   By: jnauroy <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 18:37:08 by jnauroy           #+#    #+#             */
-/*   Updated: 2025/01/06 13:39:50 by jnauroy          ###   ########.fr       */
+/*   Updated: 2025/01/08 11:36:09 by jnauroy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef LIBFT_H
@@ -20,6 +20,7 @@ int		ft_isdigit(int c);
 char	**ft_split(const char *s, char c);
 char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlen(const char *str);
+int		ft_memcmp(const void *s1, const void *s2, size_t n);
 
 typedef struct s_list
 {

@@ -6,35 +6,36 @@
 /*   By: jnauroy <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 18:33:14 by jnauroy           #+#    #+#             */
-/*   Updated: 2025/01/07 18:59:37 by jnauroy          ###   ########.fr       */
+/*   Updated: 2025/01/08 11:39:22 by jnauroy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "checker.h"
 
 int ft_moove(char *line)
 {
-	if (line == "sb\n")
+	if (!ft_memcmp(line, "sb\n", 3))
 		return (SB);
-	else if (line == "pb\n")
+	else if (!ft_memcmp(line, "pb\n", 3))
 		return (PB);
-	else if (line == "rb\b")
+	else if (!ft_memcmp(line, "rb\n", 3))
 		return (RB);
-	else if (line == "rrb\n")
+	else if (!ft_memcmp(line, "rrb\n", 4))
 		return (RRB);
-	else if (line == "sa\n")
+	else if (!ft_memcmp(line, "sa\n", 3))
 		return (SA);
-	else if (line == "pa\n")
+	else if (!ft_memcmp(line, "pa\n", 3))
 		return (PA);
-	else if (line == "ra\n")
+	else if (!ft_memcmp(line, "ra\n", 3))
 		return (RA);
-	else if (line == "rra\n")
+	else if (!ft_memcmp(line, "rra\n", 4))
 		return (RRA);
-	else if (line == "ss\n")
+	else if (!ft_memcmp(line, "ss\n", 3))
 		return (SS);
-	else if (line == "rr\n")
+	else if (!ft_memcmp(line, "rr\n", 3))
 		return (RR);
-	else if (line == "rrr\n")
+	else if (!ft_memcmp(line, "rrr\n", 4))
 		return (RRR);
+	return (0);
 }
 
 void ft_create_instructions(t_list **cmd)
@@ -47,7 +48,7 @@ void ft_create_instructions(t_list **cmd)
 	{
 		value = ft_moove(line);
 		free(line);
-		ft_lstadd_back(&cmd, ft_lstnew(value));
+		ft_lstadd_back(cmd, ft_lstnew(value));
 		line = get_next_line(0);
 	}
 	free(line);
@@ -93,9 +94,9 @@ int main(int argc, char **argv)
 	while (tmp)
 	{
 		ft_checker(&tmp, &stack_a, &stack_b);
-		tmp = tmp.next;
+		tmp = tmp->next;
 	}
-	if (!ft_check_sort(&stack_a) && ft_lstsize(&stack_b) == 0)
+	if (!ft_check_sort(&stack_a) && ft_lstsize(stack_b) == 0)
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
