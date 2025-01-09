@@ -1,42 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations.c                                       :+:      :+:    :+:   */
+/*   operations_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jnauroy <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 09:03:43 by jnauroy           #+#    #+#             */
-/*   Updated: 2025/01/08 11:06:41 by jnauroy          ###   ########.fr       */
+/*   Updated: 2025/01/08 14:18:08 by jnauroy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "checker.h"
 
 void	ft_swap(t_list **stack_a, t_list **stack_b)
 {
-	int	flag;
-
-	flag = 1;
-	ft_swap_a(stack_a, flag);
-	ft_swap_b(stack_b, flag);
-	write(1, "ss\n", 3);
+	ft_swap_a(stack_a);
+	ft_swap_b(stack_b);
 }
 
 void	ft_rotate(t_list **stack_a, t_list **stack_b)
 {
-	int	flag;
-
-	flag = 1;
-	ft_rotate_a(stack_a, flag);
-	ft_rotate_b(stack_b, flag);
-	write(1, "rr\n", 3);
+	ft_rotate_a(stack_a);
+	ft_rotate_b(stack_b);
 }
 
 void	ft_reverse_rotate(t_list **stack_a, t_list **stack_b)
 {
-	int	flag;
-
-	flag = 1;
-	ft_reverse_rotate_a(stack_a, flag);
-	ft_reverse_rotate_b(stack_b, flag);
-	write(1, "rrr\n", 4);
+	ft_reverse_rotate_a(stack_a);
+	ft_reverse_rotate_b(stack_b);
 }

@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   b_operations.c                                     :+:      :+:    :+:   */
+/*   b_operations_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jnauroy <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 07:50:21 by jnauroy           #+#    #+#             */
-/*   Updated: 2025/01/08 11:06:01 by jnauroy          ###   ########.fr       */
+/*   Updated: 2025/01/08 14:49:17 by jnauroy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "checker.h"
 
-void	ft_swap_b(t_list **stack_b, int flag)
+void	ft_swap_b(t_list **stack_b)
 {
 	t_list	*head;
 
@@ -21,8 +21,6 @@ void	ft_swap_b(t_list **stack_b, int flag)
 		(*stack_b)->next = head->next;
 		head->next = *stack_b;
 		*stack_b = head;
-		if (flag != 1)
-			write(1, "sb\n", 3);
 	}
 }
 
@@ -35,11 +33,10 @@ void	ft_push_b(t_list **stack_b, t_list **stack_a)
 		temp = (*stack_a)->next;
 		ft_lstadd_front(stack_b, *stack_a);
 		*stack_a = temp;
-		write(1, "pb\n", 3);
 	}
 }
 
-void	ft_rotate_b(t_list **stack_b, int flag)
+void	ft_rotate_b(t_list **stack_b)
 {
 	t_list	*ptr;
 
@@ -49,12 +46,10 @@ void	ft_rotate_b(t_list **stack_b, int flag)
 		ft_lstlast(*stack_b)->next = *stack_b;
 		(*stack_b)->next = NULL;
 		*stack_b = ptr;
-		if (flag != 1)
-			write(1, "rb\n", 3);
 	}
 }
 
-void	ft_reverse_rotate_b(t_list **stack_b, int flag)
+void	ft_reverse_rotate_b(t_list **stack_b)
 {
 	t_list	*ptr;
 
@@ -67,7 +62,5 @@ void	ft_reverse_rotate_b(t_list **stack_b, int flag)
 		ptr = *stack_b;
 		*stack_b = (*stack_b)->next;
 		ptr->next = NULL;
-		if (flag != 1)
-			write(1, "rrb\n", 4);
 	}
 }

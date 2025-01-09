@@ -6,12 +6,12 @@
 /*   By: jnauroy <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 18:33:14 by jnauroy           #+#    #+#             */
-/*   Updated: 2025/01/08 11:39:22 by jnauroy          ###   ########.fr       */
+/*   Updated: 2025/01/09 13:58:56 by jnauroy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "checker.h"
 
-int ft_moove(char *line)
+int	ft_moove(char *line)
 {
 	if (!ft_memcmp(line, "sb\n", 3))
 		return (SB);
@@ -38,10 +38,10 @@ int ft_moove(char *line)
 	return (0);
 }
 
-void ft_create_instructions(t_list **cmd)
+void	ft_create_instructions(t_list **cmd)
 {
-	char *line;
-	int value;
+	char	*line;
+	int		value;
 
 	line = get_next_line(0);
 	while (line)
@@ -52,26 +52,27 @@ void ft_create_instructions(t_list **cmd)
 		line = get_next_line(0);
 	}
 	free(line);
-	exit(0);
+	close(0);
 }
-void ft_checker(t_list **cmd, t_list **stack_a, t_list **stack_b)
+
+void	ft_checker(t_list **cmd, t_list **stack_a, t_list **stack_b)
 {
-	if ((*cmd)->content == SB)	
-		ft_swap_b(stack_b, 0);
+	if ((*cmd)->content == SB)
+		ft_swap_b(stack_b);
 	else if ((*cmd)->content == PB)
 		ft_push_b(stack_b, stack_a);
 	else if ((*cmd)->content == RB)
-		ft_rotate_b(stack_b, 0);
+		ft_rotate_b(stack_b);
 	else if ((*cmd)->content == RRB)
-		ft_reverse_rotate_b(stack_b, 0);
+		ft_reverse_rotate_b(stack_b);
 	else if ((*cmd)->content == SA)
-		ft_swap_a(stack_a, 0);
+		ft_swap_a(stack_a);
 	else if ((*cmd)->content == PA)
 		ft_push_a(stack_a, stack_b);
 	else if ((*cmd)->content == RA)
-		ft_rotate_a(stack_a, 0);
+		ft_rotate_a(stack_a);
 	else if ((*cmd)->content == RRA)
-		ft_reverse_rotate(stack_a, 0);
+		ft_reverse_rotate_a(stack_a);
 	else if ((*cmd)->content == SS)
 		ft_swap(stack_a, stack_b);
 	else if ((*cmd)->content == RR)
@@ -80,13 +81,16 @@ void ft_checker(t_list **cmd, t_list **stack_a, t_list **stack_b)
 		ft_reverse_rotate(stack_a, stack_b);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_list *stack_a;
-	t_list *stack_b;
-	t_list *cmd;
-	t_list *tmp;
+	t_list	*stack_a;
+	t_list	*stack_b;
+	t_list	*cmd;
+	t_list	*tmp;
 
+	stack_a = NULL;
+	stack_b = NULL;
+	cmd = NULL;
 	if (ft_pars_and_create(argc, argv, &stack_a))
 		return (1);
 	ft_create_instructions(&cmd);
