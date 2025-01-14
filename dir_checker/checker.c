@@ -86,14 +86,14 @@ int	ft_checker(t_list **cmd, t_list **stack_a, t_list **stack_b)
 	return (1);
 }
 
-int ft_main_algo(t_list **cmd, t_list **stack_a, t_list **stack_b)
+int	ft_main_algo(t_list **cmd, t_list **stack_a, t_list **stack_b)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	tmp = *cmd;
 	while (tmp)
 	{
-		if(!ft_checker(&tmp, stack_a, stack_b))
+		if (!ft_checker(&tmp, stack_a, stack_b))
 			return (0);
 		tmp = tmp->next;
 	}

@@ -6,7 +6,7 @@
 /*   By: jnauroy <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 07:50:21 by jnauroy           #+#    #+#             */
-/*   Updated: 2025/01/08 14:49:17 by jnauroy          ###   ########.fr       */
+/*   Updated: 2025/01/14 16:24:22 by jnauroy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "checker.h"
@@ -56,11 +56,14 @@ void	ft_reverse_rotate_b(t_list **stack_b)
 	if (*stack_b)
 	{
 		ptr = *stack_b;
-		while ((*stack_b)->next->next != NULL)
+		if ((*stack_b)->next)
+		{
+			while ((*stack_b)->next->next != NULL)
+				*stack_b = (*stack_b)->next;
+			(*stack_b)->next->next = ptr;
+			ptr = *stack_b;
 			*stack_b = (*stack_b)->next;
-		(*stack_b)->next->next = ptr;
-		ptr = *stack_b;
-		*stack_b = (*stack_b)->next;
-		ptr->next = NULL;
+			ptr->next = NULL;
+		}
 	}
 }

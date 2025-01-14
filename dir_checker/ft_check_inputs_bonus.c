@@ -116,6 +116,7 @@ int	ft_check_sort(t_list **stack_a)
 	t_list	*temp1;
 	t_list	*temp2;
 	int		count;
+
 	if (*stack_a)
 	{
 		temp1 = *stack_a;
