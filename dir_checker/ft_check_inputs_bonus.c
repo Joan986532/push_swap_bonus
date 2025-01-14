@@ -6,7 +6,7 @@
 /*   By: jnauroy <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 18:01:52 by jnauroy           #+#    #+#             */
-/*   Updated: 2025/01/08 11:06:28 by jnauroy          ###   ########.fr       */
+/*   Updated: 2025/01/14 11:47:42 by jnauroy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "checker.h"
@@ -116,18 +116,20 @@ int	ft_check_sort(t_list **stack_a)
 	t_list	*temp1;
 	t_list	*temp2;
 	int		count;
-
-	temp1 = *stack_a;
-	temp2 = temp1->next;
-	count = 0;
-	while (temp2 != NULL)
+	if (*stack_a)
 	{
-		if (temp1->content > temp2->content)
-			count++;
-		temp2 = temp2->next;
-		temp1 = temp1->next;
+		temp1 = *stack_a;
+		temp2 = temp1->next;
+		count = 0;
+		while (temp2 != NULL)
+		{
+			if (temp1->content > temp2->content)
+				count++;
+			temp2 = temp2->next;
+			temp1 = temp1->next;
+		}
+		if (count == 0)
+			return (0);
 	}
-	if (count == 0)
-		return (0);
 	return (1);
 }

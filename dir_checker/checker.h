@@ -6,7 +6,7 @@
 /*   By: jnauroy <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 08:58:23 by jnauroy           #+#    #+#             */
-/*   Updated: 2025/01/09 13:59:41 by jnauroy          ###   ########.fr       */
+/*   Updated: 2025/01/10 17:12:15 by jnauroy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef CHECKER_H
@@ -37,12 +37,14 @@ enum e_commands
 
 //checker
 int		main(int argc, char **argv);
-void	ft_create_instructions(t_list **cmd);
-void	ft_checker(t_list **cmd, t_list **stack_a, t_list **stack_b);
+int		ft_create_instruct(t_list **cmd);
+int		ft_checker(t_list **cmd, t_list **stack_a, t_list **stack_b);
 int		ft_moove(char *line);
+int		ft_main_algo(t_list **cmd, t_list **stack_a, t_list **stack_b);
 
 //ft_utils_bonus
 int		ft_atol(char *str, int *content);
+void	ft_free_checker(t_list **cmd, t_list **stack_a, t_list **stack_b);
 
 //algo_bonus
 int		ft_pars_and_create(int argc, char **argv, t_list **stack_a);

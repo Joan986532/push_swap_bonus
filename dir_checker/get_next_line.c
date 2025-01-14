@@ -118,5 +118,7 @@ char	*get_next_line(int fd)
 		string = NULL;
 		return (NULL);
 	}
+	free(string);
+	string = NULL;
 	return (sentence);
 }
